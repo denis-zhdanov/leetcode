@@ -1,4 +1,4 @@
-package org.denis.leetcode
+package org.denis.leetcode.p51
 
 import kotlin.test.fail
 
@@ -129,8 +129,8 @@ private fun withSelectedPoint(point: Point, points: MutableSet<Point>, dimension
 
 private fun removeDiagonal(seed: Point, points: MutableSet<Point>, columnShift: Int, rowShift: Int, dimension: Int) {
     var row = seed.row + rowShift
-    var column = seed.column + columnShift;
-    while (row >= 0 && row < dimension && column >= 0 && column < dimension) {
+    var column = seed.column + columnShift
+    while (row in 0..(dimension - 1) && column in 0..(dimension - 1)) {
         points -= Point(row, column)
         row += rowShift
         column += columnShift
