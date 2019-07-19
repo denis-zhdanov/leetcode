@@ -1,4 +1,4 @@
-package org.denis.leetcode.p51
+package org.denis.leetcode.p0051
 
 import kotlin.test.fail
 

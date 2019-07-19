@@ -1,4 +1,4 @@
-package org.denis.leetcode.p53;
+package org.denis.leetcode.p0053;
 
 public class Solution {
     public int maxSubArray(int[] nums) {
