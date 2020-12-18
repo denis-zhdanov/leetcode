@@ -11,6 +11,17 @@ fun buildList(vararg data: Int): ListNode {
     return result
 }
 
+fun parseListNodeList(s: String): ListNode {
+    val parts = s.split("->")
+    val head = ListNode(parts[0].toInt())
+    parts.subList(1, parts.size).fold(head) { tail, part ->
+        ListNode(part.toInt()).apply {
+            tail.next = this
+        }
+    }
+    return head
+}
+
 fun parseDoubleCharArray(s: String): Array<CharArray> {
     return s
         .substring(2, s.length - 2)
