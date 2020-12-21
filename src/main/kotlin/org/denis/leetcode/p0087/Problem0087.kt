@@ -42,7 +42,7 @@ class Solution {
                 return true
             }
         }
-        cache[s1 to s2] = false
+        cache[setOf(s1, s2)] = false
         return false
     }
 }
