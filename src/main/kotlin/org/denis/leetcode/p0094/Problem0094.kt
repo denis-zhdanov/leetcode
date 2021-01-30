@@ -17,26 +17,22 @@ class Solution {
     fun inorderTraversal(root: TreeNode?): List<Int> {
         root ?: return emptyList()
         return mutableListOf<Int>().apply {
-            val next = Stack<NodeEx>()
-            next += NodeEx(root)
+            val next = Stack<TreeNode>()
+            next += root
             while (next.isNotEmpty()) {
                 val node = next.pop()
-                if (!node.leftIsDone) {
-                    node.leftIsDone = true
-                    val left = node.node.left
-                    if (left != null) {
-                        next += node
-                        next += NodeEx(left)
-                        continue
-                    }
+                val left = node.left
+                if (left != null) {
+                    next += node
+                    next += left
+                    node.left = null
+                    continue
                 }
-                this += node.node.`val`
-                node.node.right?.let {
-                    next += NodeEx(it)
+                this += node.`val`
+                node.right?.let {
+                    next += it
                 }
             }
         }
     }
 }
-
-data class NodeEx(val node: TreeNode, var leftIsDone: Boolean = false)
