@@ -14,24 +14,6 @@ fun main() {
     ), Solution().generateTrees(3).toSet())
 }
 
-fun verify(root: TreeNode) {
-    val toVerify = Stack<TreeNode>()
-    toVerify += root
-    while (toVerify.isNotEmpty()) {
-        val node = toVerify.pop()
-        node.left?.let {
-            if (it.`val` >= node.`val`) {
-                throw IllegalArgumentException("left node '${it.`val`} is not less than parent ${node.`val`}")
-            }
-        }
-        node.right?.let {
-            if (it.`val` <= node.`val`) {
-                throw IllegalArgumentException("right node '${it.`val`} is not greater than parent ${node.`val`}")
-            }
-        }
-    }
-}
-
 class Solution {
     fun generateTrees(n: Int): List<TreeNode?> {
         return if (n <= 0) {
