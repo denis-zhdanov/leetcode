@@ -6,8 +6,8 @@ import kotlin.test.assertEquals
 
 fun main() {
     val solution = Solution()
-//    assertEquals(TreeNode.parse("[3,1,null,null,2]"), TreeNode.parse("[1,3,null,null,2]").apply(solution::recoverTree))
-//    assertEquals(TreeNode.parse("[2,1,4,null,null,3]"), TreeNode.parse("[3,1,4,null,null,2]").apply(solution::recoverTree))
+    assertEquals(TreeNode.parse("[3,1,null,null,2]"), TreeNode.parse("[1,3,null,null,2]").apply(solution::recoverTree))
+    assertEquals(TreeNode.parse("[2,1,4,null,null,3]"), TreeNode.parse("[3,1,4,null,null,2]").apply(solution::recoverTree))
     assertEquals(TreeNode.parse("[2,1,3]"), TreeNode.parse("[2,3,1]").apply(solution::recoverTree))
 }
 
