@@ -1,50 +1,19 @@
-package org.denis.leetcode;
+package org.denis.leetcode
 
-import java.util.Collections;
-import java.util.IdentityHashMap;
-import java.util.Objects;
-import java.util.Set;
-
-public class ListNode {
-
-    public int val;
-    public ListNode next;
-
-    public ListNode(int val) {
-        this.val = val;
-    }
-
-    private final ThreadLocal<Set<ListNode>> currentToString = ThreadLocal.withInitial(
-            () -> Collections.newSetFromMap(new IdentityHashMap<>()));
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) {
-            return true;
+data class ListNode(
+    var `val`: Int,
+    var next: ListNode?
+) {
+    companion object {
+        fun parse(vararg nums: Int): ListNode {
+            val result = ListNode(nums.first(), null)
+            var tail = result
+            for (i in 1 until nums.size) {
+                val node = ListNode(nums[i], null)
+                tail.next = node
+                tail = node
+            }
+            return result
         }
-        if (o == null || getClass() != o.getClass()) {
-            return false;
-        }
-        ListNode listNode = (ListNode) o;
-        return val == listNode.val &&
-               Objects.equals(next, listNode.next);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(val, next);
-    }
-
-    @Override
-    public String toString() {
-        if (!currentToString.get().add(this)) {
-            return "cycle";
-        }
-        String result = String.valueOf(val);
-        if (next != null) {
-            result += " -> " + next.toString();
-        }
-        currentToString.get().remove(this);
-        return result;
     }
 }

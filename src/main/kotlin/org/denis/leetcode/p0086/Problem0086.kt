@@ -1,11 +1,10 @@
 package org.denis.leetcode.p0086
 
 import org.denis.leetcode.ListNode
-import org.denis.leetcode.parseListNodeList
 import kotlin.test.assertEquals
 
 fun main() {
-    assertEquals(parseListNodeList("1->2->2->4->3->5"), Solution().partition(parseListNodeList("1->4->3->2->5->2"), 3))
+    assertEquals(ListNode.parse(1, 2, 2, 4, 3, 5), Solution().partition(ListNode.parse(1, 4, 3, 2, 5, 2), 3))
 }
 
 class Solution {

@@ -1,12 +1,11 @@
 package org.denis.leetcode.p0092
 
 import org.denis.leetcode.ListNode
-import org.denis.leetcode.parseListNodeList
 import kotlin.test.assertEquals
 
 fun main() {
-    assertEquals(parseListNodeList("5"), Solution().reverseBetween(parseListNodeList("5"), 1, 1))
-    assertEquals(parseListNodeList("1->4->3->2->5"), Solution().reverseBetween(parseListNodeList("1->2->3->4->5"), 2, 4))
+    assertEquals(ListNode.parse(5), Solution().reverseBetween(ListNode.parse(5), 1, 1))
+    assertEquals(ListNode.parse(1, 4, 3, 2, 5), Solution().reverseBetween(ListNode.parse(1, 2, 3, 4, 5), 2, 4))
 }
 
 class Solution {

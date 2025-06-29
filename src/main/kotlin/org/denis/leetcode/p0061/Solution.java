@@ -4,7 +4,7 @@ import org.denis.leetcode.ListNode;
 
 public class Solution {
     public ListNode rotateRight(ListNode head, int k) {
-        if (head == null || head.next == null) {
+        if (head == null || head.getNext() == null) {
             return head;
         }
         int size = getSize(head);
@@ -12,19 +12,19 @@ public class Solution {
             return head;
         }
         ListNode newTail = get(head, size - (k % size) - 1);
-        ListNode result = newTail.next;
+        ListNode result = newTail.getNext();
         ListNode beforeOldHead = result;
-        while (beforeOldHead.next != null) {
-            beforeOldHead = beforeOldHead.next;
+        while (beforeOldHead.getNext() != null) {
+            beforeOldHead = beforeOldHead.getNext();
         }
-        beforeOldHead.next = head;
-        newTail.next = null;
+        beforeOldHead.setNext(head);
+        newTail.setNext(null);
         return result;
     }
 
     private int getSize(ListNode head) {
         int result = 0;
-        for (ListNode node = head; node != null; node = node.next) {
+        for (ListNode node = head; node != null; node = node.getNext()) {
             result++;
         }
         return result;
@@ -33,7 +33,7 @@ public class Solution {
     private ListNode get(ListNode head, int i) {
         ListNode result = head;
         for (int j = 0; j < i; j++) {
-            result = result.next;
+            result = result.getNext();
         }
         return result;
     }
