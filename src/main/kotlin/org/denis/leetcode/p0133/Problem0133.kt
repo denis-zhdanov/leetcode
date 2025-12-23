@@ -7,6 +7,7 @@ fun main() {
 }
 
 class Solution {
+    @Suppress("unused")
     fun cloneGraph(node: Node?): Node? {
         node ?: return node
         val inputNodes = mutableMapOf<Int, Node>()
@@ -41,10 +42,4 @@ class Solution {
 
 data class Node(var `val`: Int) {
     var neighbors: ArrayList<Node?> = ArrayList<Node?>()
-
-//    companion object {
-//        fun parse(s: String): Node {
-//
-//        }
-    }
 }
